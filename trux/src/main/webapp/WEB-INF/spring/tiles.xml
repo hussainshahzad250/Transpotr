@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="base.definition" template="/WEB-INF/views/mainTemplate.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="report.base.definition" template="/WEB-INF/views/reportMainTemplate.jsp">
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/reportHeader.jsp"></put-attribute>
+		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="message" value="/WEB-INF/pages/error404.html"></put-attribute>		
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="consumerwallet" extends="base.definition">
+		<put-attribute name="title" value="Consumer"></put-attribute>
+		<put-attribute name="body" value="/pages/consumerwallet.jsp"></put-attribute>
+	</definition>
+
+	<definition name="driverRegistration" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Driver Registration"></put-attribute>
+		<put-attribute name="body" value="/pages/driverRegistration.jsp"></put-attribute>
+	</definition>
+	<definition name="vehicleRegistration" extends="base.definition">
+		<put-attribute name="title" value="Trux Vehicle Registration"></put-attribute>
+		<put-attribute name="body" value="/pages/vehicleRegistration.jsp"></put-attribute>
+	</definition>
+
+	<definition name="deviceRegistration" extends="base.definition">
+		<put-attribute name="title" value="Trux Vehicle Registration"></put-attribute>
+		<put-attribute name="body" value="/pages/deviceRegistration.jsp"></put-attribute>
+	</definition>
+	<definition name="driverList" extends="base.definition">
+		<put-attribute name="title" value="Trux Driver List"></put-attribute>
+		<put-attribute name="body" value="/pages/driverList.jsp"></put-attribute>
+	</definition>
+	<definition name="vehicleList" extends="base.definition">
+		<put-attribute name="title" value="Trux Vehicle List"></put-attribute>
+		<put-attribute name="body" value="/pages/vehicleList.jsp"></put-attribute>
+	</definition>
+	<!-- Report definition -->
+	<definition name="vehicleList" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Vehicle List"></put-attribute>
+		<put-attribute name="body" value="/pages/vehicleList.jsp"></put-attribute>
+	</definition>
+	<definition name="bookingReports" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Booking Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/bookingReports.jsp"></put-attribute>
+	</definition>
+
+	<definition name="consumerReport" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Consumer Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/consumerReport.jsp"></put-attribute>
+	</definition>
+	<definition name="pendingOrders" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Pending Orders Report"></put-attribute>
+		<put-attribute name="body" value="/pages/pendingOrders.jsp"></put-attribute>
+	</definition>
+	<definition name="bookingCurrentStatus" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Pending Orders Report"></put-attribute>
+		<put-attribute name="body" value="/pages/bookingCurrentStatus.jsp"></put-attribute>
+	</definition>
+	<definition name="acceptedBookings" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Accepted Bookings Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/acceptedBookings.jsp"></put-attribute>
+	</definition>
+	<definition name="rejectedBookings" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Rejected Bookings Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/rejectedBookings.jsp"></put-attribute>
+	</definition>
+	<definition name="logedInVehicle" extends="report.base.definition">
+		<put-attribute name="title" value="Trux loged In Vehicle Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/logedInVehicle.jsp"></put-attribute>
+	</definition>
+	<definition name="loggedInVehicleDetails" template="/pages/loggedInVehicleDetails.jsp">
+	</definition>
+	<definition name="login" template="/pages/login.jsp">
+	</definition>
+	
+	<definition name="/CitrusFiles/samplerequest" template="/pages/CitrusFiles/samplerequest.jsp">
+	</definition>
+	<definition name="/CitrusFiles/returnresponse" template="/pages/CitrusFiles/returnresponse.jsp">
+	</definition>
+	
+	<definition name="driverVehicleMapping" extends="report.base.definition">
+		<put-attribute name="title" value="Trux driver Vehicle mapping"></put-attribute>
+		<put-attribute name="body" value="/pages/driverVehicleMapping.jsp"></put-attribute>
+	</definition>
+	<definition name="driverVehicleMappingView" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Driver Vehicle Mapping View"></put-attribute>
+		<put-attribute name="body" value="/pages/driverVehicleMappingView.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="forgotPassword" template="/pages/forgotPassword.jsp"></definition>
+	<definition name="resetPassword" template="/pages/resetPassword.jsp"></definition>
+	<definition name="forgetPassFinal" template="/pages/forgetPassFinal.jsp"></definition>
+		
+	<definition name="vehicleRegistration" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Vehicle Registration"></put-attribute>
+		<put-attribute name="body" value="/pages/vehicleRegistration.jsp"></put-attribute>
+	</definition>
+	 <definition name="vehicleLocation" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Vehicle Location"></put-attribute>
+		<put-attribute name="body" value="/pages/vehicleLocation.jsp"></put-attribute>
+	</definition>
+	<definition name="CitrusFiles/citrusbillgenerator" template="/pages/CitrusFiles/citrusbillgenerator.jsp"> 
+	</definition>
+	<definition name="CitrusFiles/returndata" template="/pages/CitrusFiles/returndata.jsp"> 
+	</definition>
+	 <definition name="loggedInReports" extends="report.base.definition">
+		<put-attribute name="title" value="Trux logged In Driver Vehicle Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/loggedInReports.jsp"></put-attribute>
+	</definition>
+	
+	  <definition name="orderReports" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Order Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/orderReports.jsp"></put-attribute>
+	</definition>
+	  <definition name="orderReports" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Order Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/orderReports.jsp"></put-attribute>
+	</definition>
+	
+	   <definition name="revenueReports" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Revenue Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/revenueReports.jsp"></put-attribute>
+	</definition>
+	<definition name="bookingVehicleChangeReports" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Vehicle Change Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/bookingVehicleChangeReports.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="driverloginReports" extends="report.base.definition">
+		<put-attribute name="title" value="Trux Driver Login Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/driverloginReports.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="customerBookingVehicle" extends="report.base.definition">
+		<put-attribute name="title" value="Customer Booking Vehicle"></put-attribute>
+		<put-attribute name="body" value="/pages/customerBookingVehicle.jsp"></put-attribute>
+	</definition>
+	<definition name="orderReportwithstatuscolor" extends="report.base.definition">
+		<put-attribute name="title" value="Customer Order Booking Vehicle"></put-attribute>
+		<put-attribute name="body" value="/pages/orderReportwithstatuscolor.jsp"></put-attribute>
+	</definition>
+	<definition name="createUserRegistration" extends="report.base.definition">
+		<put-attribute name="title" value="Customer Order Booking Vehicle"></put-attribute>
+		<put-attribute name="body" value="/pages/createUserRegistration.jsp"></put-attribute>
+	</definition>
+	<definition name="changeUserPassword" extends="report.base.definition">
+		<put-attribute name="title" value="change passwords"></put-attribute>
+		<put-attribute name="body" value="/pages/changeUserPassword.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="massege" template="/pages/massege.jsp"> 
+	</definition>
+	
+	<definition name="index" template="http://www.truxapp.com"> 
+	</definition>
+	<!-- <definition name="index" template="/pages/index.jsp"> 
+	</definition> -->
+	<definition name="backEndBookinRideReports" extends="report.base.definition">
+		<put-attribute name="title" value="Customer Order Booking Vehicle Back end"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndBookinRideReports.jsp"></put-attribute>
+	</definition>
+	<definition name="backEndVehicleRegistration" extends="report.base.definition">
+		<put-attribute name="title" value="Vehicle Registration Back end"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndVehicleRegistration.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="backEndUpdateVehicleRegistration" extends="report.base.definition">
+		<put-attribute name="title" value="Vehicle  uppdate Registration"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndUpdateVehicleRegistration.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="backEndOrgRegistration" extends="report.base.definition">
+		<put-attribute name="title" value="Org Registration for  Back end"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndOrgRegistration.jsp"></put-attribute>
+	</definition>
+	<definition name="backEndDriverRegistration" extends="report.base.definition">
+		<put-attribute name="title" value="Driver Registration"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndDriverRegistration.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="backEndHubRegistration" extends="report.base.definition">
+		<put-attribute name="title" value="Hub Registration"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndHubRegistration.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="backEndClusterRegistration" extends="report.base.definition">
+		<put-attribute name="title" value="Cluster Registration"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndClusterRegistration.jsp"></put-attribute>
+	</definition>
+	<definition name="backEndStandRegistration" extends="report.base.definition">
+		<put-attribute name="title" value="Stand Registration"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndStandRegistration.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="backEndOrgBooking" extends="report.base.definition">
+		<put-attribute name="title" value="Organizational Booking"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndOrgBooking.jsp"></put-attribute>
+	</definition>
+	
+	<!-- <definition name="driverAttandance" extends="report.base.definition">
+		<put-attribute name="title" value="Driver Attendance"></put-attribute>
+		<put-attribute name="body" value="/pages/driverAttandance.jsp"></put-attribute>
+	</definition> -->
+	<definition name="driverAttandance" extends="report.base.definition">
+		<put-attribute name="title" value="Driver Attendance"></put-attribute>
+		<put-attribute name="body" value="/pages/driverAttandanceWithResponsive.jsp"></put-attribute>
+	</definition>
+	
+	
+	<definition name="welcome" extends="report.base.definition">
+		<put-attribute name="title" value="WELCOME TO TRUX Organiztional Modul"></put-attribute>
+		<put-attribute name="body" value="/pages/welcome.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="subsidiaryRegistration" extends="report.base.definition">
+		<put-attribute name="title" value="Sub Organizational registration"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndOrgSubsidiaryRegistration.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="backEndZoneRegistration" extends="report.base.definition">
+		<put-attribute name="title" value="Zone registration"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndZoneRegistration.jsp"></put-attribute>
+	</definition>
+	<definition name="backEndOrgUsersRegistration" extends="report.base.definition">
+		<put-attribute name="title" value="Sub Organization User registration"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndOrgUsersRegistration.jsp"></put-attribute>
+	</definition>
+ 
+ <definition name="backEndDriverReports" extends="report.base.definition">
+		<put-attribute name="title" value="Driver Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndDriverReports.jsp"></put-attribute>
+	</definition>
+ 
+  <definition name="orderReportwithOnDemandStatuscolor" extends="report.base.definition">
+		<put-attribute name="title" value="On Demand Order Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/orderReportwithOnDemandStatuscolor.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="orderReportwithOnDemandAppStatuscolor" extends="report.base.definition">
+		<put-attribute name="title" value="On Demand Customer APP Order Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/orderReportwithOnDemandAppStatuscolor.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="orderReportwithLeaseStatuscolor" extends="report.base.definition">
+		<put-attribute name="title" value="Leased Order Reports"></put-attribute>
+		<put-attribute name="body" value="/pages/orderReportwithLeaseStatuscolor.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="backEndDriverEditRegistration" extends="report.base.definition">
+		<put-attribute name="title" value="Update driver"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndDriverEditRegistration.jsp"></put-attribute>
+	</definition>
+	
+	
+	<definition name="backEndUploadDriverImage" extends="report.base.definition">
+		<put-attribute name="title" value="upload  driver file"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndUploadDriverImage.jsp"></put-attribute>
+	</definition>
+	
+	
+	
+	
+	 
+ <definition name="backEndLeasedBooking" extends="report.base.definition">
+		<put-attribute name="title" value="Leased Booking"></put-attribute>
+		<put-attribute name="body" value="/pages/backendLeaseBooking.jsp"></put-attribute>
+	</definition>
+  
+   <definition name="backEndClientUserMapping" extends="report.base.definition">
+		<put-attribute name="title" value="Client User Mapping"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndClientUserMapping.jsp"></put-attribute>
+	</definition>
+	
+	 <definition name="backEndMandate" extends="report.base.definition">
+		<put-attribute name="title" value="Client Mandate"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndMandate.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="backEndUpdateMandate" extends="report.base.definition">
+		<put-attribute name="title" value="Client Mandate search and update"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndUpdateMandate.jsp"></put-attribute>
+	</definition>
+	
+   <definition name="backEndMandateDetails" extends="report.base.definition">
+		<put-attribute name="title" value="Client Mandate Details"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndMandateDetails.jsp"></put-attribute>
+	</definition>
+	
+	 <definition name="backEndUpdateMandateDetails" extends="report.base.definition">
+		<put-attribute name="title" value="Update Client Mandate Details"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndUpdateMandateDetails.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="backEndTripSheetBooking" extends="report.base.definition">
+		<put-attribute name="title" value="Trip Sheet Booking"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndTripSheetBooking.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="backEndClientAdhocRequest" extends="report.base.definition">
+		<put-attribute name="title" value="Client Ad-Hoc Request"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndClientAdhocRequest.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="backEndCreateTransporterOrder" extends="report.base.definition">
+		<put-attribute name="title" value="Create Client Order"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndCreateTransporterOrder.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Added By shahzad Hussain -->
+	<definition name="backEndUpdateTransporterOrder" extends="report.base.definition">
+		<put-attribute name="title" value="Update Client Order"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndUpdateTransporterOrder.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="import" extends="report.base.definition">
+		<put-attribute name="title" value="ImportExcel"></put-attribute>
+		<put-attribute name="body" value="/pages/import.jsp"></put-attribute>
+	</definition>
+	<definition name="importsuccess" extends="report.base.definition">
+		<put-attribute name="title" value="ImportExcel"></put-attribute>
+		<put-attribute name="body" value="/pages/importsuccess.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="downloadExcel" extends="report.base.definition">
+		<put-attribute name="title" value="Download Excell"></put-attribute>
+		<put-attribute name="body" value="/pages/downloadExcel.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="backEndSearchTransporterOrder" extends="report.base.definition">
+		<put-attribute name="title" value="Seach Client Order"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndSearchTransporterOrder.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="backEndApproveTransporterOrder" extends="report.base.definition">
+		<put-attribute name="title" value="Approve Client Order"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndApproveTransporterOrder.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="backEndpublishCRFOrder" extends="report.base.definition">
+		<put-attribute name="title" value="Approve Client Order"></put-attribute>
+		<put-attribute name="body" value="/pages/backEndpublishCRFOrder.jsp"></put-attribute>
+	</definition>
+	
+	
+   
+<definition name="leadgeneration" template="/pages/leadgeneration.jsp"></definition>
+	
+</tiles-definitions>

@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TruxBill" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3aeb23a5-2739-410d-8982-eb31e3be561b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="272"/>
+	<style name="rupee_symbol"/>
+	<parameter name="UserName" class="java.lang.String"/>
+	<parameter name="rupee" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<parameter name="order_id" class="java.lang.String"/>
+	<parameter name="totalfare" class="java.lang.String"/>
+	<parameter name="totaldistance" class="java.lang.String"/>
+	<parameter name="totaltime" class="java.lang.String"/>
+	<parameter name="servicetype" class="java.lang.String"/>
+	<parameter name="bookingdate" class="java.lang.String"/>
+	<parameter name="pickupdate" class="java.lang.String"/>
+	<parameter name="emailid" class="java.lang.String"/>
+	<parameter name="servicetax" class="java.lang.String"/>
+	<parameter name="educess" class="java.lang.String"/>
+	<parameter name="base_fare_inclusive_km" class="java.lang.String"/>
+	<parameter name="base_fare" class="java.lang.String"/>
+	<parameter name="wait_time" class="java.lang.String"/>
+	<parameter name="rate_above_base_fare" class="java.lang.String"/>
+	<parameter name="waiting_charges" class="java.lang.String"/>
+	<variable name="UserName" class="java.lang.String"/>
+	<title>
+		<band height="99" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="103" height="40" uuid="10b255a1-c038-4c35-ab0f-817ab10aaacd"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="431" y="0" width="77" height="12" uuid="dde93122-2fe4-4b1b-a5d2-3cd554cfbd25"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[TRUX INVOICE NO.]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="476" y="12" width="56" height="11" uuid="c99a74e6-c384-43a5-868a-884171b6c34a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="218" y="68" width="101" height="16" forecolor="#FFFFFF" uuid="7e977d02-32b8-4de0-865b-b2fc4f0f5f17"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Thanks For Using Trux]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="1" y="40" width="554" height="50" forecolor="#FFFFFF" backcolor="#000000" uuid="ca204290-8727-484c-9019-b1f571f23670"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="12" y="90" width="532" height="3" forecolor="#99FF00" backcolor="#99FF00" uuid="6c80de1c-15b2-4703-b644-dc027eae472a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="223" y="72" width="103" height="13" forecolor="#FFFFFF" uuid="a9c0c219-4abb-4400-a202-b90898f52fb0"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thanks for using TRUX ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="226" y="48" width="100" height="20" forecolor="#FFFFFF" uuid="4089b877-2031-46f0-ba23-0b5c126f6821"/>
+				<textFieldExpression><![CDATA[$P{UserName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="508" y="0" width="36" height="12" uuid="3272c8fc-e1c3-4e86-a05c-4fe7f81c61fe"/>
+				<textFieldExpression><![CDATA[$P{order_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="199" splitType="Stretch">
+			<staticText>
+				<reportElement x="-120" y="159" width="46" height="20" uuid="dd63e1f5-8cb4-4dde-8072-6b084a580145"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Rs 0.0]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="10" y="3" width="541" height="186" uuid="d2e30506-0a01-4e38-957a-af35a0d05b3e"/>
+			</rectangle>
+			<image>
+				<reportElement x="346" y="170" width="14" height="13" uuid="6d487560-da4d-41d0-b4ff-be078da1ef1f"/>
+				<imageExpression><![CDATA[$P{rupee}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="176" y="86" width="136" height="19" uuid="9e1c65b8-1518-44a3-9e66-40689181645f"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL DISTANCE: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="273" y="165" width="29" height="15" uuid="d37f96aa-b73d-4556-809d-18ddd89487d8"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[0.0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="179" y="105" width="130" height="19" uuid="4c044d83-3fe4-4008-a479-7fc8d5fed215"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL  TIME: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="153" width="104" height="12" uuid="c735d1fa-1678-4762-9c52-e5593ffba2c7"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[TRUX MONEY DEDUCTED]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="165" width="35" height="15" uuid="179e6398-78ff-4c70-aa93-c0d7dc97beba"/>
+				<text><![CDATA[0.0]]></text>
+			</staticText>
+			<image>
+				<reportElement x="131" y="167" width="14" height="13" uuid="2b5b7640-d0d1-4582-8e7b-fec874e1f01e"/>
+				<imageExpression><![CDATA[$P{rupee}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="242" y="37" width="25" height="24" uuid="f1c8c2cd-75e6-45a0-8490-49d8be84c2fa"/>
+				<imageExpression><![CDATA[$P{rupee}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="251" y="152" width="46" height="15" uuid="5e373c58-d56e-495a-9f3b-e1b4542e8374"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[DISCOUNT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="344" y="151" width="87" height="15" uuid="cbc466ec-7bc7-429c-a646-b6b2ef5cb758"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[PAYABLE AMOUNT]]></text>
+			</staticText>
+			<image>
+				<reportElement x="251" y="167" width="14" height="13" uuid="b8c8faea-e694-4fcf-a748-a88d68db19f9"/>
+				<imageExpression><![CDATA[$P{rupee}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="223" y="15" width="141" height="20" uuid="9dbe2a41-637b-4d77-a855-3779dacd0a59"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL AMOUNT
+
+]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="275" y="39" width="100" height="20" uuid="f155309c-9224-43fc-bb54-30e06813fdc6"/>
+				<textFieldExpression><![CDATA[$P{totalfare}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="85" width="100" height="20" uuid="16a0f13d-8fad-4fe9-a6f9-f961fb70458d"/>
+				<textFieldExpression><![CDATA[$P{totaldistance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="107" width="100" height="20" uuid="cfa9ddd4-2b52-49ea-a207-df5eea7099c0"/>
+				<textFieldExpression><![CDATA[$P{totaltime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="366" y="169" width="100" height="20" uuid="95ecdbc5-2350-46a1-932a-7d8c28eee5d0"/>
+				<textFieldExpression><![CDATA[$P{totalfare}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="146" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="42" width="77" height="20" uuid="b1396dfd-e19c-46e1-979d-d2f6ff9ca8fa"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Base fare for]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="62" width="47" height="20" uuid="7b915451-e817-4879-a08c-42be6ea7b403"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Rate for]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="83" width="110" height="17" uuid="84338984-973c-4c8e-8efb-e86e72e33742"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Wait time charge for]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="103" y="62" width="36" height="20" uuid="d7bbbe43-7b68-49fd-a315-6cf65390c13b"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Kms :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="99" width="100" height="20" uuid="c126fdad-808d-4df9-b6d3-db66f0014b6a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Peak time charge]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="119" width="110" height="20" uuid="6c0ab940-b253-414f-af5e-1892a116c42d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Toll/MCD/TAX* (?) :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="42" width="100" height="20" uuid="46cfb64d-f771-4aa3-acf8-be36673f98b4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total Payable Bill :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="205" y="119" width="46" height="20" uuid="c7c22f10-aabc-46c5-8833-ad1965d82368"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[0.0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="83" width="32" height="17" uuid="8f87b1d7-288d-4574-b45e-77b9c5268901"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Min :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="206" y="100" width="41" height="20" uuid="44a57162-f706-47de-ae32-55ef3bfacf95"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[0.0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="62" width="119" height="20" uuid="6d95b77c-e2c9-4e9f-9784-c620a0e6777a"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TAX BREAKUP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="82" width="100" height="20" uuid="994e92ad-3037-4226-b755-ef67c2567162"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Service Tax :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="466" y="118" width="32" height="20" uuid="0dfe7552-ec2b-4c83-9a27-d4a2b4faddc1"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[0.0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="122" width="100" height="20" uuid="efc824f2-fcee-4fc6-9a58-a8b68e407339"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[SED cess :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="102" width="100" height="20" uuid="89ce941f-6bcd-4e02-b0e9-5361b588ad37"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Education Cess :]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="4" y="4" width="264" height="26" backcolor="#000000" uuid="b9ae9323-9b3b-434d-a3b4-80282558a282"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="67" y="11" width="123" height="16" forecolor="#CCCC00" uuid="3edd8be3-8362-4e31-bb7b-8fa6b845e063"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FARE BREAKUP]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="291" y="4" width="251" height="26" backcolor="#000000" uuid="2fcb17e0-c9bf-4212-a288-4936cb51f516"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="366" y="11" width="123" height="16" forecolor="#CCCC00" uuid="8366c97f-4e39-423d-9f11-7adec65cc4ed"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FARE DETAILS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="182" y="42" width="19" height="16" uuid="60f0d80f-2505-47b9-91ee-0e22c6bc78a2"/>
+				<imageExpression><![CDATA[$P{rupee}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="182" y="63" width="19" height="16" uuid="b9458916-5b16-45d9-a8dd-cac879b52bf1"/>
+				<imageExpression><![CDATA[$P{rupee}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="182" y="79" width="19" height="16" uuid="b79e26f2-1d80-42c2-abc6-cef891ef94c1"/>
+				<imageExpression><![CDATA[$P{rupee}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="182" y="99" width="19" height="16" uuid="d95ff7dd-5091-44d4-a42e-9ff785c4516c"/>
+				<imageExpression><![CDATA[$P{rupee}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="182" y="119" width="19" height="16" uuid="8127a6a4-3c71-4fe5-ad9e-8c3a21ef8588"/>
+				<imageExpression><![CDATA[$P{rupee}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="450" y="43" width="19" height="16" uuid="677d14c5-5ca9-4b35-8fab-4d04fb4769b9"/>
+				<imageExpression><![CDATA[$P{rupee}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="449" y="82" width="19" height="16" uuid="00c99d6f-59ff-4097-8c2e-daa3f21f077c"/>
+				<imageExpression><![CDATA[$P{rupee}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="449" y="101" width="19" height="16" uuid="3d138eee-731f-46a1-8841-9a93b35a3516"/>
+				<imageExpression><![CDATA[$P{rupee}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="449" y="119" width="19" height="16" uuid="d84e1ca4-f408-475e-9a3d-46952b532b27"/>
+				<imageExpression><![CDATA[$P{rupee}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="473" y="43" width="64" height="20" uuid="9089ca6a-ac0e-4cc6-b847-8de4134c0836"/>
+				<textFieldExpression><![CDATA[$P{totalfare}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="472" y="81" width="77" height="20" uuid="2f686bb9-4d3e-4f5f-9f3c-6082cfef7e31"/>
+				<textFieldExpression><![CDATA[$P{servicetax}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="472" y="99" width="64" height="20" uuid="1cc90305-22e6-46b5-bbe2-51b6c4c47845"/>
+				<textFieldExpression><![CDATA[$P{educess}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="43" width="30" height="18" uuid="fa7154d1-7da0-4163-9b2f-ca0923334b93"/>
+				<textFieldExpression><![CDATA[$P{base_fare_inclusive_km}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="44" width="30" height="18" uuid="4ee61194-7f1c-4021-a3b4-5ae0bedb2afc"/>
+				<textFieldExpression><![CDATA[$P{base_fare}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="64" width="30" height="18" uuid="df943247-15fe-48a2-be66-ef48646eaddc"/>
+				<textFieldExpression><![CDATA[$P{rate_above_base_fare}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="64" width="30" height="18" uuid="62c667a2-7667-45d3-b781-d488fd402930"/>
+				<textFieldExpression><![CDATA[$P{rate_above_base_fare}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="121" y="84" width="30" height="18" uuid="798ba3e1-3653-43a3-a3e2-d5a510e4d6cf"/>
+				<textFieldExpression><![CDATA[$P{wait_time}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="82" width="30" height="18" uuid="7e8e40ba-b650-4d6e-ad0e-1ba80b3f7972"/>
+				<textFieldExpression><![CDATA[$P{waiting_charges}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="134" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="45" width="100" height="20" uuid="cac901e4-3449-464b-92dc-95855e73cad1"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Service type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="104" width="100" height="20" uuid="0c9f1558-4b72-40d4-9f7c-ccf95051bd44"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Booking Email id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="85" width="100" height="20" uuid="c31d19fc-10a1-4603-9c58-f2fba1db6ba1"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Pickup Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="65" width="100" height="20" uuid="aa90bafc-9994-4c06-aa7b-1172f55e1c8e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Booking Date]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="1" y="9" width="554" height="27" backcolor="#CCCCCC" uuid="9ef5d7ca-36e1-47a4-bbae-5f809157559f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="231" y="15" width="95" height="20" uuid="124af774-8912-456f-b1a9-7c690dfe1609"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Booking Details]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="176" y="45" width="143" height="20" uuid="ee7c5522-f985-4f96-8cac-d7481ce28836"/>
+				<textFieldExpression><![CDATA[$P{servicetype}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="65" width="143" height="20" uuid="675be837-0450-4937-b118-6ecb46184bef"/>
+				<textFieldExpression><![CDATA[$P{bookingdate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="84" width="143" height="20" uuid="91bc5f28-a84d-4329-8b49-66530b98794a"/>
+				<textFieldExpression><![CDATA[$P{pickupdate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="176" y="103" width="143" height="20" uuid="8acf35a7-be7a-4940-9763-da7f9ec192c9"/>
+				<textFieldExpression><![CDATA[$P{emailid}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="1" splitType="Stretch">
+			<line>
+				<reportElement x="4" y="0" width="551" height="1" forecolor="#666666" uuid="1f1609ec-0d05-43a4-a255-50eccf2849e3"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="111">
+			<staticText>
+				<reportElement mode="Opaque" x="8" y="11" width="541" height="87" forecolor="#FFFFFF" backcolor="#000000" uuid="33449cd4-d523-4c53-82b7-7cc8e26084a6"/>
+				<text><![CDATA[                              Kutub Plaza DLH Phase 1, Gurgain Haryana, India  - 400057
+          Service Tax # AAJCA1389GSD001, Service Tax Category Cab Operator, PAN No. AAJCA1389G,
+                                                         CIN:U72900MH2010PTC240894
+                                     Tel: +0124-3947900, 0124-30947900,  www.truxapp.com
+                                                           ©Trux App Pvt. Ltd]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+		<property name="maxUploadSize" value="10000000" /> </bean> -->
+
+
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+
+		<!-- staging -->
+		<!-- <property name="url" value="jdbc:mysql://180.151.15.77:3306/truxprod"/> 
+			<property name="username" value="devnewuser" /> <property name="password" 
+			value="trux#dev" /> -->
+		<property name="url" value="jdbc:mysql://localhost:3306/truxdev" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+
+		<!-- <property name="url" value="jdbc:mysql://localhost:3306/trux"/> <property 
+			name="username" value="root" /> <property name="password" value="root" /> -->
+		<property name="initialSize" value="10" />
+		<property name="maxActive" value="50" />
+		<property name="minIdle" value="5" />
+		<property name="removeAbandonedTimeout" value="120" />
+		<property name="removeAbandoned" value="true" />
+		<property name="validationQuery" value="select 1 from dual; " />
+	</bean>
+
+
+	<!-- Hibernate 4 SessionFactory Bean definition -->
+	<bean id="hibernate4AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.trux.model.VehicleLocation</value>
+				<value>com.trux.model.DriverRegistration</value>
+				<value>com.trux.model.VehicleRegistration</value>
+				<value>com.trux.model.UserDetail</value>
+				<value>com.trux.model.CustomerBookingDetails</value>
+				<value>com.trux.model.DeviceRegistration</value>
+				<value>com.trux.model.DriverDeviceVehicleMapping</value>
+				<value>com.trux.model.ConsumerRegistration</value>
+				<value>com.trux.model.FareRates</value>
+				<value>com.trux.model.CurrentVehicleLocation</value>
+				<value>com.trux.model.ForgetPassword</value>
+				<value>com.trux.model.ForgotPassword</value>
+				<value>com.trux.model.ConsumerPaymentGateway</value>
+				<value>com.trux.model.ConsumerPaymentMode</value>
+				<value>com.trux.model.ConsumerWallet</value>
+				<value>com.trux.model.ConsumerPaymentStatus</value>
+				<value>com.trux.model.TrackFlashedBooking</value>
+				<value>com.trux.model.BookingNotificationAudit</value>
+				<value>com.trux.model.WalletEntryModel</value>
+				<value>com.trux.model.LeadGeneration</value>
+				<value>com.trux.model.VehicleType</value>
+				<value>com.trux.model.Module</value>
+				<value>com.trux.model.DriverCollection</value>
+				<value>com.trux.model.OrganizationMasterRegistration</value>
+				<value>com.trux.model.States</value>
+				<value>com.trux.model.Countries</value>
+				<value>com.trux.model.Cities</value>
+				<value>com.trux.model.HubRegistration</value>
+				<value>com.trux.model.MultiDropPointBookingDetails</value>
+				<value>com.trux.model.OrganizationBookingRegistration</value>
+				<value>com.trux.model.SubsidiaryClientOfOrg</value>
+				<value>com.trux.model.OrganizationalClientBookingDetails</value>
+				<value>com.trux.model.DriverAttandance</value>
+				<value>com.trux.model.ClusterRegistration</value>
+				<value>com.trux.model.StandRegistration</value>
+				<value>com.trux.model.Zones</value>
+				<value>com.trux.model.LevelOfOrganization</value>
+				<value>com.trux.model.OrganizationalUser</value>
+				<value>com.trux.model.LeaseBooking</value>
+				<value>com.trux.model.LeaseBookingStop</value>
+				<value>com.trux.model.DriverLoginHistory</value>
+				<value>com.trux.model.DesboardInfo</value>
+				<value>com.trux.model.ClientMandateDetail</value>
+				<value>com.trux.model.ClientMandate</value>
+				<value>com.trux.model.ClientInvoiceDocs</value>
+				<value>com.trux.model.SubsidiaryClientUser</value>
+				<value>com.trux.model.ClientUserMapping</value>
+				<value>com.trux.model.UserLoginHistory</value>
+				<value>com.trux.model.ClientVehicleDeployment</value>
+				<value>com.trux.model.ClientMandateDetailsTrip</value>
+				<value>com.trux.model.VehicleTripSheet</value>
+				<value>com.trux.model.VehicleTripsheetDrops</value>
+				<value>com.trux.model.TransporterRegistration</value>
+				<value>com.trux.model.TransporterLoginHistory</value>
+				<value>com.trux.model.TransporterClientOrders</value>
+				<value>com.trux.model.TransporterClientOrderMapping</value>
+				<value>com.trux.model.TransporterOrderFollowUp</value>
+				<value>com.trux.model.TransporterVehicleRegistration</value>
+				<value>com.trux.model.CommunicationSMS</value>
+				<value>com.trux.model.ClientMandateRequest</value>
+				<value>com.trux.model.FileBean</value>
+				<value>com.trux.model.ExcelFile</value>
+
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.jdbc.batch_size">150</prop> <!-- <prop key="hibernate.order_inserts">true</prop> -->
+				<!-- <prop key="hibernate.order_updates">true</prop> -->
+
+				<!-- <prop key= "hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop> 
+					<prop key="hibernate.c3p0.idle_test_period">1800</prop> <prop key="hibernate.c3p0.max_size">600</prop> 
+					<prop key="hibernate.c3p0.max_statements">50</prop> <prop key="hibernate.c3p0.min_size">5</prop> 
+					<prop key="hibernate.c3p0.timeout">1800</prop> -->
+
+			</props>
+		</property>
+	</bean>
+	<bean id="jpaVendorAdapter"
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="showSql" value="false" />
+	</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- setting maximum upload size -->
+		<property name="maxUploadSize" value="895000000" />
+
+	</bean>
+
+	<bean id="VehicleInfoDAO" class="com.trux.dao.VehicleInfoDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="RegistrationDAO" class="com.trux.dao.RegistrationDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="BookingDAO" class="com.trux.dao.BookingDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="ConsumerRegistrationDAO" class="com.trux.dao.ConsumerRegistrationDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="FareDao" class="com.trux.dao.FareDaoImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="consumerPaymentGatewayDAO" class="com.trux.dao.ConsumerPaymentGatewayDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="walletEntryDao" class="com.trux.dao.WalletEntryDaoImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="trackFlashedBookingDao" class="com.trux.dao.TrackFlashedBookingDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="leadGenerationDao" class="com.trux.dao.LeadGenerationDaoImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="vehicleTypeDAO" class="com.trux.dao.VehicleTypeDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="moduleDAO" class="com.trux.dao.ModuleDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="driverCollectionDAO" class="com.trux.dao.DriverCollectionDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="organizationMasterDAO" class="com.trux.dao.OrganizationMasterDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="hubRegistrationDAO" class="com.trux.dao.HubRegistrationDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="multiDropPointBookingDetailsDAO" class="com.trux.dao.MultiDropPointBookingDetailsDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="orgBookingDAO" class="com.trux.dao.OrgBookingDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="driverAttandanceDAO" class="com.trux.dao.DriverAttandanceDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="clusterRegistrationDAO" class="com.trux.dao.ClusterRegistrationDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="standRegistrationDAO" class="com.trux.dao.StandRegistrationDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="subsaidiaryOrgRegistrationDAO" class="com.trux.dao.SubsaidiaryOrgRegistrationDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="zonesDAO" class="com.trux.dao.ZonesDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="levelOfOrganizationDAO" class="com.trux.dao.LevelOfOrganizationDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="organizationalUserDDAO" class="com.trux.dao.OrganizationalUserDDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="leaseBookingDAO" class="com.trux.dao.LeaseBookingDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="leaseBookingStopDAO" class="com.trux.dao.LeaseBookingStopDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+
+	<bean id="driverLoginHistoryDAO" class="com.trux.dao.DriverLoginHistoryDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="desboardInfoDAO" class="com.trux.dao.DesboardInfoDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="clientInvoiceDocsDAO" class="com.trux.dao.ClientInvoiceDocsDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="clientMandateDAO" class="com.trux.dao.ClientMandateDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="clientMandateDetailDAO" class="com.trux.dao.ClientMandateDetailDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="subsidiaryClientUserDAO" class="com.trux.dao.SubsidiaryClientUserDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="clientUserMappingDAO" class="com.trux.dao.ClientUserMappingDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+	<bean id="userLoginHistoryDAO" class="com.trux.dao.UserLoginHistoryDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="tax" class="com.trux.model.TaxType">
+		<property name="fullTax" value="14.9" />
+		<property name="abettedTax" value="4.9" />
+	</bean>
+
+	<bean id="taxTypeDAO" class="com.trux.dao.TaxTypeDAOImpl">
+		<property name="tax" ref="tax" />
+	</bean>
+	<bean id="clientVehicleDeploymentDAO" class="com.trux.dao.ClientVehicleDeploymentDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="clientMandateDetailsTripDAO" class="com.trux.dao.ClientMandateDetailsTripDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="vehicleTripSheetDAO" class="com.trux.dao.VehicleTripSheetDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="transporterRegistrationDAO" class="com.trux.dao.TransporterRegistrationDAOImpl">
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+
+
+	<!-- <bean id="importDao" class="com.trux.dao.importDaoImpl"> <property 
+		name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" /> </bean> -->
+
+
+</beans>
